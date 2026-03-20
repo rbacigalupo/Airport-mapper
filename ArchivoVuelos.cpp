@@ -10,14 +10,10 @@ ArchivoVuelos::ArchivoVuelos(){
 
 void ArchivoVuelos::leer_archivo(Grafo* grafo){
 
-	while(!archivo_vuelos.eof()){
-
-		archivo_vuelos >> codigo_partida;
-		archivo_vuelos >> codigo_llegada;
-		archivo_vuelos >> costo_vuelo;
-		archivo_vuelos >> horas_vuelo;
+	while(archivo_vuelos >> codigo_partida >> codigo_llegada >> costo_vuelo >> horas_vuelo){
 
 		verificar_vertice(codigo_partida, grafo);
+		verificar_vertice(codigo_llegada, grafo);
 		hallar_aristas(codigo_partida, codigo_llegada, horas_vuelo, costo_vuelo, grafo);
 
 	}

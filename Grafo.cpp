@@ -43,16 +43,15 @@ void Grafo::imprimir_vertices(){
 Vertice* Grafo::obtener_vertice(string codigo){
 	list<Vertice*> :: iterator iterador;
 	iterador = lista_vertices.begin();
-	bool existe = false;
-	Vertice* aux;
-	while( iterador != lista_vertices.end() && existe != true){
+	Vertice* aux = NULL;
+	while( iterador != lista_vertices.end()){
 		if(codigo == (*iterador)->obtener_codigo()){
-				existe = true;
 				aux = (*iterador);
-			} else {
-				iterador ++;
+				break;
 			}
-		} return aux;
+		iterador ++;
+	}
+	return aux;
 }
 
 void Grafo::insertar_arista(Vertice* o, Arista* d){
@@ -76,14 +75,14 @@ void Grafo::eliminar_todo(){
 		Vertice* aux;
 		aux = (*iterador);
 		iterador ++;
-		delete aux;
 		lista_vertices.remove(aux);
+		delete aux;
 	}
 }
 
 void Grafo::iniciar(float distancia[], bool visitado[], int previo[]){
 
-	for( int i = 0 ; i <= tam ; ++i ){
+	for( int i = 0 ; i < tam ; ++i ){
 
 		distancia[ i ] = INF;
 	    previo[ i ] = -1;
@@ -93,7 +92,7 @@ void Grafo::iniciar(float distancia[], bool visitado[], int previo[]){
 
 void Grafo::Dijkstra(Vertice* inicial, int op){
 
-		bool visitado[tam];
+		bool visitado[MAX_V];
 
 		this->iniciar(distancia, visitado, previo);
 		cola_prioridad.insertar(inicial, 0);
@@ -158,16 +157,15 @@ void Grafo::imprimir_dijkstra(int dest, float & horas, float & costo){
 Vertice* Grafo::obtener_vertice(int dest){
 	list<Vertice*> :: iterator iterador;
 	iterador = lista_vertices.begin();
-	bool existe = false;
-	Vertice* aux;
-	while( iterador != lista_vertices.end() && existe != true){
+	Vertice* aux = NULL;
+	while( iterador != lista_vertices.end()){
 		if(dest == (*iterador)->obtener_id()){
-				existe = true;
 				aux = (*iterador);
-			} else {
-				iterador ++;
+				break;
 			}
-		} return aux;
+		iterador ++;
+	}
+	return aux;
 }
 
 Grafo::~Grafo(){

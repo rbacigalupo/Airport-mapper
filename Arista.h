@@ -22,7 +22,7 @@ public:
 
 	/*
 	 * PRE: Recibe un string
-	 * POST: Aisgna valor al atributo origen
+	 * POST: Asigna valor al atributo origen
 	 */
 	void asignar_origen(string);
 

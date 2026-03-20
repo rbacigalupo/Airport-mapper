@@ -33,7 +33,7 @@ void Menu::seleccionar_opcion(int &num){
 	cout << "\t(7) Buscar el itinerario de conexiones mas eficiente" << endl;
 	cout << "\t(8) Finalizar la aplicacion" << endl;
 	cout << "---------------------------------------\n" << endl;
-	cout << "IMPUT: ";
+	cout << "INPUT: ";
 	cin >> num;
 
 }
@@ -79,9 +79,14 @@ void Menu::realizar_accion(int num){
 				break;
 		case 7:{
 				float total_horas = 0, total_costo = 0;
-				ingresar_entrada(origen, destino,op);
-				grafo.Dijkstra(grafo.obtener_vertice(origen), op);
+				ingresar_entrada(origen, destino, op);
+				Vertice* ver_origen = grafo.obtener_vertice(origen);
 				Vertice* ver_destino = grafo.obtener_vertice(destino);
+				if (ver_origen == NULL || ver_destino == NULL) {
+					cout << "Error: aeropuerto no encontrado.\n" << endl;
+					break;
+				}
+				grafo.Dijkstra(ver_origen, op);
 				cout << "\nLas conexiones encontradas son:\n" << endl;
 				grafo.imprimir_dijkstra(ver_destino->obtener_id(), total_horas, total_costo);
 				imprimir_totales(total_horas, total_costo);
@@ -123,11 +128,11 @@ void Menu::limpiar_pantalla(){
 
 	cout << string(50, '\n');
 
-    #ifdef linux
-        system("clear");
-    #else
-        system ("cls");
-    #endif
+	#if defined(__linux__) || defined(__APPLE__)
+		system("clear");
+	#else
+		system("cls");
+	#endif
 }
 
 void Menu::imprimir_totales(float &horas, float &costo){

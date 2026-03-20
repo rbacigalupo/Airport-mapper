@@ -11,7 +11,7 @@ class Nodo {
 
 	private:
 		T dato;
-		int prioridad;
+		float prioridad;
 		Nodo<T>* psig;
 
 	public:
@@ -21,7 +21,7 @@ class Nodo {
 		Nodo(T dato_nuevo);
 
 		//Post: Crea un nodo con dato_nuevo y prioridad p
-		Nodo(T dato_nuevo, int p);
+		Nodo(T dato_nuevo, float p);
 
 		//Pre: Existe el nodo
 		//Post: Devuelve un dato T
@@ -32,7 +32,7 @@ class Nodo {
 		Nodo<T>* obtener_siguiente();
 
 		//Post: devuelve la prioridad del nodo.
-		int obtener_prioridad();
+		float obtener_prioridad();
 
 		//Pre: -
 		//Post: El puntero al siguiente nodo apuntara a psig
@@ -61,7 +61,7 @@ Nodo<T>* Nodo<T>::obtener_siguiente(){
 }
 
 template<class T>
-int Nodo<T>::obtener_prioridad(){
+float Nodo<T>::obtener_prioridad(){
 	return this->prioridad;
 }
 
@@ -69,15 +69,15 @@ template<class T>
 Nodo<T>::Nodo(T dato_nuevo){
 	dato = dato_nuevo;
 	this->psig = NULL;
-	prioridad = 1;
+	prioridad = 1.0f;
 }
 
 template<class T>
-Nodo<T>::Nodo(T dato_nuevo, int d){
+Nodo<T>::Nodo(T dato_nuevo, float p){
 
 	dato = dato_nuevo;
 	this->psig = NULL;
-	prioridad = d;
+	prioridad = p;
 }
 
 template<class T>
