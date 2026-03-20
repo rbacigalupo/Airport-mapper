@@ -5,6 +5,7 @@ Menu::Menu(){
 	arbol = new ABB<Aeropuerto*>();
 	archivo_aeropuerto.cargar_arbol(arbol);
 	archivo_vuelos.leer_archivo(&grafo);
+	sincronizar_grafo_con_arbol();
 }
 
 Menu::~Menu(){
@@ -109,8 +110,8 @@ void Menu::realizar_accion(int num){
 }
 
 void Menu::verificar_codigo(string& c){
-	if(!grafo.existe_vertice(c)){
-		cout << "El codigo ingresado no existe, por favor ingrese otro" << endl;
+	if(arbol->buscar(c) == NULL){
+		cout << "El codigo ingresado no existe en el catalogo, por favor ingrese otro: " << endl;
 		cin >> c;
 		verificar_codigo(c);
 	}
@@ -216,6 +217,10 @@ void Menu::ingresar_aeropuerto(string clave){
 	Aeropuerto* aero = new Aeropuerto(nombre, ciudad, pais, superficie, cant_terminales, dest_nacionales, dest_internacionales);
 
 	arbol->insertar(clave, aero);
+	if (!grafo.existe_vertice(clave)){
+		Vertice* v = new Vertice(clave);
+		grafo.insertar_vertice(v);
+	}
 }
 
 
@@ -257,4 +262,23 @@ void Menu::mostrar_aeropuertos_por_nivel(){
 void Menu::agregar_claves(Cola<NodoABB<Aeropuerto*>*> &cola, NodoABB<Aeropuerto*>* nodo){
 	if(nodo != NULL)
 		cola.insertar(nodo);
+}
+
+void Menu::sincronizar_grafo_con_arbol(){
+	NodoABB<Aeropuerto*>* raiz = arbol->obtener_raiz();
+	if (raiz == NULL) return;
+
+	Cola<NodoABB<Aeropuerto*>*> cola;
+	cola.insertar(raiz);
+
+	while(!cola.esVacia()){
+		NodoABB<Aeropuerto*>* nodo = cola.desacolar();
+		string clave = nodo->obtener_clave();
+		if (!grafo.existe_vertice(clave)){
+			Vertice* v = new Vertice(clave);
+			grafo.insertar_vertice(v);
+		}
+		agregar_claves(cola, nodo->obtener_izquierda());
+		agregar_claves(cola, nodo->obtener_derecha());
+	}
 }

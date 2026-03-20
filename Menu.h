@@ -32,6 +32,7 @@ class Menu{
 		//metodos
 		void continuar();
 		void limpiar_pantalla();
+		void sincronizar_grafo_con_arbol();
 
 	public:
 
