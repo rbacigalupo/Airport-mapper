@@ -1,3 +1,8 @@
+/**
+ * ArchivoAeropuerto.h
+ * Reads aeropuertos.txt and loads airports into the ABB.
+ */
+
 #ifndef ARCHIVOAEROPUERTO_H_
 #define ARCHIVOAEROPUERTO_H_
 

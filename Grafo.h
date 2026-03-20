@@ -1,3 +1,8 @@
+/**
+ * Grafo.h
+ * Directed graph of airports (vertices) and flights (edges).
+ * Implements Dijkstra for shortest path by duration or cost.
+ */
 
 #ifndef GRAFO_H_
 #define GRAFO_H_

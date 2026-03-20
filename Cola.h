@@ -1,8 +1,12 @@
+/**
+ * Cola.h
+ * Queue template. insertar(d, prioridad) implements priority queue.
+ */
+
 #ifndef COLA_H_
 #define COLA_H_
 #include "Nodo.h"
 template<class T>
-
 class Cola
 {
 private:

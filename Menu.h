@@ -1,8 +1,6 @@
-/*
+/**
  * Menu.h
- *
- *  Created on: 29 jul. 2020
- *      Author: Luz M. Diaz
+ * Interactive menu: loads data, dispatches user actions.
  */
 
 #ifndef MENU_H_

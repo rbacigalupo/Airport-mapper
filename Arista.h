@@ -1,3 +1,7 @@
+/**
+ * Arista.h
+ * Graph edge: origin, destination, cost, duration.
+ */
 
 #ifndef ARISTA_H_
 #define ARISTA_H_

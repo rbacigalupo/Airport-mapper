@@ -1,4 +1,7 @@
-
+/**
+ * NodoABB.h
+ * BST node: key (string), value (T), left, right, parent.
+ */
 
 #ifndef ABB_NodoABB_H
 #define ABB_NodoABB_H

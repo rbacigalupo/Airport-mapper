@@ -1,8 +1,6 @@
-/*
+/**
  * main.cpp
- *
- *  Created on: 24 jul. 2020
- *      Author: rodri
+ * Entry point. Initializes Menu and starts the interactive loop.
  */
 
 #include "ABB.h"

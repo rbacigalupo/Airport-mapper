@@ -1,8 +1,6 @@
-/*
+/**
  * Aeropuerto.h
- *
- *  Created on: 25 jul. 2020
- *      Author: rodri
+ * Airport entity: name, city, country, surface, terminals, destinations.
  */
 
 #ifndef AEROPUERTO_H_

@@ -1,8 +1,6 @@
-/*
+/**
  * ArchivoVuelos.h
- *
- *  Created on: 2 ago. 2020
- *      Author: carolina
+ * Reads vuelos.txt and builds the flight graph.
  */
 
 #ifndef ARCHIVOVUELOS_H_

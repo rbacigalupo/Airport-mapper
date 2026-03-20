@@ -1,3 +1,7 @@
+/**
+ * Vertice.h
+ * Graph vertex: IATA code, id, adjacency list of edges.
+ */
 
 #ifndef VERTICE_H_
 #define VERTICE_H_

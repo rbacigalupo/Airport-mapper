@@ -1,3 +1,8 @@
+/**
+ * Nodo.h
+ * Generic node for Cola. Supports optional priority (float).
+ */
+
 #ifndef NODO_H_
 #define NODO_H_
 
@@ -6,7 +11,6 @@
 using namespace std;
 
 template<class T>
-
 class Nodo {
 
 	private:
